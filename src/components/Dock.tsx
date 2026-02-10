@@ -82,11 +82,10 @@ const DockIcon = ({
     <div className="relative">
       <motion.button
         ref={ref}
-        className={`flex items-center justify-center rounded-xl transition-colors ${
-          item.isActive
-            ? 'bg-[#273266] text-white shadow-md'
-            : 'bg-white text-[#273266] hover:bg-[#273266] hover:text-white border border-gray-200 hover:border-[#273266]'
-        }`}
+        className={`flex items-center justify-center rounded-xl transition-all duration-300 ${item.isActive
+          ? 'bg-[#273266] text-white shadow-lg shadow-[#273266]/40'
+          : 'bg-white text-[#273266] hover:bg-[#273266] hover:text-white border border-gray-200 hover:border-[#273266]'
+          }`}
         style={{ width, height: width }}
         onClick={item.onClick}
         onMouseEnter={onHover}
@@ -106,14 +105,6 @@ const DockIcon = ({
           {item.label}
           <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#273266] rotate-45" />
         </motion.div>
-      )}
-
-      {/* Active indicator */}
-      {item.isActive && (
-        <motion.div
-          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#EC2A2F] rounded-full"
-          layoutId="activeIndicator"
-        />
       )}
     </div>
   );

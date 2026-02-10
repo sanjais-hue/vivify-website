@@ -28,7 +28,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-white text-[#273266] overflow-x-hidden">
       <Navigation onPageChange={setActivePage} activePage={activePage} />
-      <main>
+      <main className="pt-24">
         {activePage === 'home' ? (
           <>
             <HeroSection scrollToContact={scrollToContact} />

@@ -26,12 +26,12 @@ const Navigation: React.FC<NavigationProps> = ({ onPageChange, activePage }) => 
       setScrollProgress(Math.min(progress, 100));
 
       if (activePage === 'home') {
-        const sections = ['home', 'products', 'services', 'about', 'contact'];
+        const sections = ['contact', 'about', 'services', 'products', 'home'];
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom >= 150) {
+            if (rect.top <= 200 && rect.bottom >= 200) {
               setActiveSection(section);
               break;
             }
@@ -45,20 +45,51 @@ const Navigation: React.FC<NavigationProps> = ({ onPageChange, activePage }) => 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activePage]);
 
+  const scrollToElement = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerOffset,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const handleNavClick = (id: string) => {
+    setIsMobileMenuOpen(false);
+
     if (id === 'vision-mission') {
       onPageChange('vision-mission');
+      setActiveSection('vision-mission');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      onPageChange('home');
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      return;
     }
-    setIsMobileMenuOpen(false);
+
+    if (id === 'home') {
+      if (activePage !== 'home') {
+        onPageChange('home');
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 150);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      setActiveSection('home');
+      return;
+    }
+
+    // For section-based nav items (products, services, about, contact)
+    if (activePage !== 'home') {
+      onPageChange('home');
+      // Wait for page to render, then scroll
+      setTimeout(() => {
+        scrollToElement(id);
+      }, 300);
+    } else {
+      scrollToElement(id);
+    }
   };
 
   const navItems = [
@@ -70,60 +101,72 @@ const Navigation: React.FC<NavigationProps> = ({ onPageChange, activePage }) => 
     { id: 'contact', label: 'Contact', icon: HiMail },
   ];
 
+  const isItemActive = (itemId: string) => {
+    if (activePage === 'vision-mission') {
+      return itemId === 'vision-mission';
+    }
+    return activePage === 'home' && activeSection === itemId;
+  };
+
   const dockItems = navItems.map((item) => ({
     icon: <item.icon size={22} />,
     label: item.label,
     onClick: () => handleNavClick(item.id),
+    isActive: isItemActive(item.id),
   }));
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
-          }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-300"
       >
         <div
-          className="absolute bottom-0 left-0 h-[2px] bg-[#EC2A2F] transition-all duration-300 pointer-events-none"
+          className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-[#273266] via-[#273266] to-[#EC2A2F] transition-all duration-300 pointer-events-none"
           style={{ width: `${scrollProgress}%` }}
         />
 
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <motion.div
-              className={`flex items-center gap-2 cursor-pointer ${isScrolled ? 'text-[#273266]' : 'text-white'}`}
-              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-4 cursor-pointer"
+              whileHover={{ scale: 1.02 }}
               onClick={() => handleNavClick('home')}
             >
-              <div className="w-10 h-10 bg-[#273266] rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
-                <img src="/icon-192.webp" alt="Vivify Logo" className="w-full h-full object-cover" />
-              </div>
-              <span className="font-black text-2xl tracking-tighter uppercase px-2">VIVIFY</span>
+              <img
+                src="/vivify-logo.png"
+                alt="VIVIFY TECHNOCRATS"
+                className="h-12 md:h-14 object-contain brightness-110 contrast-125 mix-blend-multiply"
+              />
+              <img
+                src="/ISO.webp"
+                alt="ISO Certified"
+                className="h-10 md:h-12 object-contain brightness-110 contrast-125 mix-blend-multiply"
+              />
             </motion.div>
 
-            <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`text-sm font-bold uppercase tracking-widest transition-colors relative group ${(activePage === 'home' && activeSection === item.id) || activePage === item.id
-                    ? 'text-[#EC2A2F]'
-                    : isScrolled ? 'text-[#273266]/70 hover:text-[#EC2A2F]' : 'text-white/80 hover:text-white'
-                    }`}
-                >
-                  {item.label}
-                  {((activePage === 'home' && activeSection === item.id) || activePage === item.id) && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#EC2A2F]"
-                    />
-                  )}
-                </button>
-              ))}
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map((item) => {
+                const active = isItemActive(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`relative px-4 py-2 text-sm font-bold uppercase tracking-wider rounded-lg transition-all duration-300 ${active
+                        ? 'text-white bg-[#273266] shadow-lg shadow-[#273266]/30'
+                        : 'text-[#273266]/70 hover:text-[#273266] hover:bg-[#273266]/5'
+                      }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
 
+            {/* Mobile Menu Button */}
             <button
-              className={`md:hidden p-2 rounded-xl transition-colors ${isScrolled ? 'text-[#273266] hover:bg-gray-100' : 'text-white hover:bg-white/10'
-                }`}
+              className="md:hidden p-2 rounded-xl text-[#273266] hover:bg-gray-100 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
@@ -132,6 +175,7 @@ const Navigation: React.FC<NavigationProps> = ({ onPageChange, activePage }) => 
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -140,19 +184,22 @@ const Navigation: React.FC<NavigationProps> = ({ onPageChange, activePage }) => 
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-40 bg-white md:hidden pt-24"
           >
-            <div className="flex flex-col items-center gap-6 p-6">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`text-2xl font-black uppercase tracking-tighter ${(activePage === 'home' && activeSection === item.id) || activePage === item.id
-                    ? 'text-[#EC2A2F]'
-                    : 'text-[#273266]'
-                    }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+            <div className="flex flex-col items-center gap-4 p-6">
+              {navItems.map((item) => {
+                const active = isItemActive(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`w-full text-center text-xl font-black uppercase tracking-tighter py-3 rounded-xl transition-all duration-300 ${active
+                      ? 'text-white bg-[#EC2A2F] shadow-lg shadow-[#EC2A2F]/30'
+                      : 'text-[#273266] hover:bg-gray-50'
+                      }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
         )}
