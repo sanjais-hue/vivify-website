@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Custom Styles for Vivify Technocrats */
+:root {
+  --color-primary: #273266;
+  --color-accent: #EC2A2F;
+  --color-white: #FFFFFF;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth animations */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection color */
+::selection {
+  background-color: #EC2A2F;
+  color: white;
+}
+
+/* Focus styles */
+*:focus {
+  outline-color: #EC2A2F;
+}
+
+/* Image loading */
+img {
+  background-color: #f3f4f6;
+}
