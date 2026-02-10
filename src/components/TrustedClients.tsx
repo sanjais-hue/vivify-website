@@ -9,47 +9,47 @@ interface ClientLogo {
 const clientLogos: ClientLogo[] = [
   {
     name: 'AIRPORTS AUTHORITY OF INDIA',
-    logo: 'https://i.postimg.cc/5j58fQ4K/AAI.jpg',
+    logo: '/logos/aai.jpg',
     alt: 'AAI Logo'
   },
   {
     name: 'Larsen & Toubro Limited Construction',
-    logo: 'https://i.postimg.cc/kX45G07g/LT.png',
+    logo: '/logos/lt.png',
     alt: 'L&T Logo'
   },
   {
     name: 'Smiths Detection',
-    logo: 'https://i.postimg.cc/PNb1dvX6/SMITHS.png',
+    logo: '/logos/smiths.png',
     alt: 'Smiths Detection Logo'
   },
   {
     name: 'The Tamil Nadu Cricket Association',
-    logo: 'https://i.postimg.cc/DmQ174vN/TNCA.png',
+    logo: '/logos/tnca.jpg',
     alt: 'TNCA Logo'
   },
   {
     name: 'Air India',
-    logo: 'https://i.postimg.cc/NL8RQ2sz/AIR-INDIA.png',
+    logo: '/logos/airindia.png',
     alt: 'Air India Logo'
   },
   {
     name: 'Jet Airways',
-    logo: 'https://i.postimg.cc/jC6yRnxg/JET-AIRWAYS.png',
+    logo: '/logos/jetairways.png',
     alt: 'Jet Airways Logo'
   },
   {
     name: 'TAGROS CHEMICALS INDIA PRIVATE LIMITED',
-    logo: 'https://tagros.com/wp-content/uploads/2021/08/logo.png',
+    logo: '/logos/tagros.jpg',
     alt: 'Tagros Logo'
   },
   {
     name: 'BHUMI',
-    logo: 'https://bhumi.ngo/wp-content/uploads/2021/02/Bhumi-Logo.png',
+    logo: '/logos/bhumi.jpg',
     alt: 'Bhumi Logo'
   },
   {
     name: 'TIL HEALTHCARE PRIVATE LIMITED',
-    logo: 'https://tilhealthcare.com/wp-content/uploads/2022/01/til-logo-white-1.png',
+    logo: '/logos/til.png',
     alt: 'TIL Healthcare Logo'
   },
   {
@@ -59,18 +59,13 @@ const clientLogos: ClientLogo[] = [
   },
   {
     name: 'AKSS PILE FOUNDATION',
-    logo: '/logos/akss.png',
+    logo: '/logos/akss.jpg',
     alt: 'AKSS Logo'
   },
   {
     name: 'ARQUIVO CROP SOLUTIONS PRIVATE LIMITED',
-    logo: '/logos/arquivo.png',
+    logo: '/logos/arquivo.jpg',
     alt: 'Arquivo Logo'
-  },
-  {
-    name: 'Bizarre Networks',
-    logo: '/logos/bizarre.png',
-    alt: 'Bizarre Networks Logo'
   },
   {
     name: 'GK Shetty Builders Pvt Ltd.',
@@ -79,7 +74,7 @@ const clientLogos: ClientLogo[] = [
   },
   {
     name: 'Jelsie Construction',
-    logo: '/logos/jelsie.png',
+    logo: '/logos/jelsie.jpg',
     alt: 'Jelsie Construction Logo'
   },
   {
@@ -88,13 +83,8 @@ const clientLogos: ClientLogo[] = [
     alt: 'Jencom Logo'
   },
   {
-    name: 'Mr.Suriya',
-    logo: '/logos/surya.png',
-    alt: 'Mr.Suriya Logo'
-  },
-  {
     name: 'Metronation Chennai Television Private Limited',
-    logo: '/logos/metronation.png',
+    logo: '/logos/metronation.jpg',
     alt: 'Metronation Logo'
   },
   {
@@ -114,7 +104,7 @@ const clientLogos: ClientLogo[] = [
   },
   {
     name: 'P.Ducker Systems Limited',
-    logo: '/logos/pducker.png',
+    logo: '/logos/pducker.jpg',
     alt: 'P.Ducker Logo'
   },
   {
@@ -123,24 +113,9 @@ const clientLogos: ClientLogo[] = [
     alt: 'Power Guard Logo'
   },
   {
-    name: 'Rathna Apartments',
-    logo: '/logos/rathna.png',
-    alt: 'Rathna Logo'
-  },
-  {
-    name: 'RISHAB',
-    logo: '/logos/rishab.png',
-    alt: 'RISHAB Logo'
-  },
-  {
     name: 'Sai Lakshmi Hall',
-    logo: '/logos/sailakshmi.png',
+    logo: '/logos/sailakshmi.jpg',
     alt: 'Sai Lakshmi Logo'
-  },
-  {
-    name: 'Sairam Fabrications',
-    logo: '/logos/sairam.png',
-    alt: 'Sairam Logo'
   },
   {
     name: 'SL Electricals',
@@ -153,28 +128,13 @@ const clientLogos: ClientLogo[] = [
     alt: 'Sri Vinayagaa Logo'
   },
   {
-    name: 'The Head Master',
-    logo: '/logos/headmaster.png',
-    alt: 'Head Master Logo'
-  },
-  {
     name: 'Upspire India Private Limited',
-    logo: '/logos/upspire.png',
+    logo: '/logos/upspire.jpg',
     alt: 'Upspire Logo'
   },
   {
-    name: 'VI-SA ENTERPRISES',
-    logo: '/logos/visa.png',
-    alt: 'VI-SA Logo'
-  },
-  {
-    name: 'W & WW Technologies',
-    logo: '/logos/www.png',
-    alt: 'W&WW Logo'
-  },
-  {
     name: 'Xports Direct Exim',
-    logo: '/logos/xports.png',
+    logo: '/logos/xports.jpg',
     alt: 'Xports Logo'
   },
   {
