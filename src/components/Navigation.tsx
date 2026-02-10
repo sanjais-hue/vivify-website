@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiHome, HiCube, HiCog, HiInformationCircle, HiMail, HiMenu, HiX } from 'react-icons/hi';
+import { HiHome, HiDatabase, HiLightningBolt, HiInformationCircle, HiMail, HiMenu, HiX } from 'react-icons/hi';
 import Dock from './Dock';
 
 const Navigation = () => {
@@ -50,8 +50,8 @@ const Navigation = () => {
 
   const navItems = [
     { id: 'home', label: 'Home', icon: HiHome },
-    { id: 'products', label: 'Products', icon: HiCube },
-    { id: 'services', label: 'Services', icon: HiCog },
+    { id: 'products', label: 'Products', icon: HiDatabase },
+    { id: 'services', label: 'Services', icon: HiLightningBolt },
     { id: 'about', label: 'About', icon: HiInformationCircle },
     { id: 'contact', label: 'Contact', icon: HiMail },
   ];

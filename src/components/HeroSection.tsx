@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToContact }) => 
     },
     {
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop',
-      title: 'Employee Hub (HRMS)',
+      title: 'Inventory Management',
       subtitle: 'HR Management System',
       description: 'Streamline onboarding, payroll, leave management, and employee self-service. Complete HR solution for modern businesses.'
     },
@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToContact }) => 
     },
     {
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&auto=format&fit=crop',
-      title: 'Reimbursement System',
+      title: 'Aggregator Expense Reimbursement',
       subtitle: 'Expense Management',
       description: 'Digital expense claim management with faster approvals, improved accuracy, and reduced administrative workload.'
     },
@@ -42,18 +42,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToContact }) => 
       title: 'E-Commerce Solutions',
       subtitle: 'Custom Online Stores',
       description: 'Full-featured e-commerce platforms with secure payments, product catalogs, and order management.'
-    },
-    {
-      image: 'https://i.postimg.cc/Hs8zJggC/CCTV.jpg',
-      title: 'Professional CCTV Surveillance',
-      subtitle: 'Security Systems',
-      description: 'Advanced surveillance systems with HD cameras, night vision, and remote monitoring for complete security coverage.'
-    },
-    {
-      image: 'https://i.postimg.cc/c1bT4JVW/ACS.jpg',
-      title: 'Robust Access Control',
-      subtitle: 'Access Solutions',
-      description: 'Secure entry management with biometric, RFID, and smart card systems for controlled access.'
     }
   ];
 

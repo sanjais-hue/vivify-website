@@ -15,7 +15,7 @@ export const FeaturesShowcase: React.FC<{ scrollToContact?: (service: string, me
       watermark: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop'
     },
     {
-      name: 'HRMS Platform',
+      name: 'HR Management',
       icon: HiUsers,
       description: 'Complete HR management with onboarding, payroll, leave management, and employee self-service.',
       link: 'https://vivifysoft.in/employeehub/#/Login',
@@ -29,7 +29,7 @@ export const FeaturesShowcase: React.FC<{ scrollToContact?: (service: string, me
       watermark: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop'
     },
     {
-      name: 'Reimbursement System',
+      name: 'Aggregator Expense Reimbursement',
       icon: HiLightningBolt,
       description: 'Digital expense claim management with faster approvals and improved accuracy.',
       link: 'https://vivifysoft.in/Home.aspx',
@@ -140,7 +140,7 @@ export const FeaturesShowcase: React.FC<{ scrollToContact?: (service: string, me
                 </div>
 
                 <p className="text-white/90 mb-6">
-                  Custom ERP, HRMS, E-Commerce platforms, and enterprise software tailored for modern business needs.
+                  Custom ERP, HR Management, E-Commerce platforms, and enterprise software tailored for modern business needs.
                 </p>
 
                 <div className="space-y-2 mb-6">

@@ -47,7 +47,7 @@ const products = [
   },
   {
     id: 4,
-    name: 'Employee Hub (HRMS)',
+    name: 'Inventory Management',
     category: 'Software Solution',
     description: 'Comprehensive HR management system for onboarding, offboarding, payroll generation, leave management, and employee self-service.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop',
@@ -76,7 +76,7 @@ const products = [
   },
   {
     id: 6,
-    name: 'Reimbursement System',
+    name: 'Aggregator Expense Reimbursement',
     category: 'Software Solution',
     description: 'Digital expense claim management enabling fast submissions, reviews, and approvals with improved accuracy and reduced admin workload.',
     image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',

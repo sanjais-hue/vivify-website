@@ -7,9 +7,9 @@ export const ServicesPage: React.FC = () => {
 
   const softwareDetails = [
     { name: 'ERP Systems', icon: HiServer, description: 'Comprehensive enterprise resource planning for inventory, accounts, purchase, and sales.', link: 'https://vivifysoft.in/ERP/#/Login' },
-    { name: 'HRMS Platform', icon: HiUsers, description: 'Complete HR management with onboarding, payroll, leave management, and employee self-service.', link: 'https://vivifysoft.in/employeehub/#/Login' },
+    { name: 'HR Management', icon: HiUsers, description: 'Complete HR management with onboarding, payroll, leave management, and employee self-service.', link: 'https://vivifysoft.in/employeehub/#/Login' },
     { name: 'Safety Management', icon: HiShieldCheck, description: 'Digital safety training, audits, incident reporting, and real-time monitoring.', link: 'https://vivifysoft.in/safety/#/AdminLogin' },
-    { name: 'Reimbursement System', icon: HiLightningBolt, description: 'Digital expense claim management with faster approvals and improved accuracy.', link: 'https://vivifysoft.in/Login.aspx' },
+    { name: 'Aggregator Expense Reimbursement', icon: HiLightningBolt, description: 'Digital expense claim management with faster approvals and improved accuracy.', link: 'https://vivifysoft.in/Login.aspx' },
     { name: 'E-Commerce Platforms', icon: HiCode, description: 'Custom online stores with product catalogs, secure payments, and order management.', link: 'http://harisilks.com/' },
     { name: 'Custom Development', icon: HiCode, description: 'Tailored software solutions built specifically for your unique business requirements.', link: null },
   ];
@@ -55,7 +55,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div><h2 className="text-4xl font-bold text-white">Software Wing</h2><p className="text-white/80">Digital Transformation</p></div>
               </div>
-              <p className="text-white/90 text-lg mb-8">Custom ERP, HRMS, E-Commerce platforms, and enterprise software.</p>
+              <p className="text-white/90 text-lg mb-8">Custom ERP, HR Management, E-Commerce platforms, and enterprise software.</p>
               <div className="space-y-3 mb-8">
                 {softwareDetails.slice(0, 5).map((s, i) => (<motion.div key={i} className="flex items-center gap-3 text-white/90" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}><HiCheckCircle className="w-6 h-6 text-[#EC2A2F]" /><span className="text-lg">{s.name}</span></motion.div>))}
               </div>

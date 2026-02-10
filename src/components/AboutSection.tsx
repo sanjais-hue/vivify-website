@@ -70,7 +70,7 @@ export const AboutSection: React.FC = () => {
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
           {/* Image Grid */}
           <motion.div
             className="relative"
@@ -78,72 +78,44 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-4">
               <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="rounded-2xl overflow-hidden shadow-lg aspect-square"
                 whileHover={{ scale: 1.05 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
-                  alt="Team collaboration"
-                  className="w-full h-56 object-cover"
+                  src="/soft.jpeg"
+                  alt="Vivify Soft - Innovation"
+                  className="w-full h-full object-cover"
                 />
               </motion.div>
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&q=80"
-                  alt="Technical work"
-                  className="w-full h-56 object-cover"
-                />
-              </motion.div>
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80"
-                  alt="Security systems"
-                  className="w-full h-56 object-cover"
-                />
-              </motion.div>
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
-                  alt="Access control"
-                  className="w-full h-56 object-cover"
-                />
-              </motion.div>
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&q=80"
-                  alt="Modern technology"
-                  className="w-full h-56 object-cover"
-                />
-              </motion.div>
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80"
-                  alt="Professional team"
-                  className="w-full h-56 object-cover"
-                />
-              </motion.div>
+              <div className="space-y-4">
+                <motion.div
+                  className="rounded-2xl overflow-hidden shadow-lg h-48"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
+                    alt="Team collaboration"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <motion.div
+                  className="rounded-2xl overflow-hidden shadow-lg h-48"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img
+                    src="/soft-2.jpeg"
+                    alt="Vivify Soft - Development"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </div>
             </div>
 
             {/* Floating Badge */}
             <motion.div
-              className="absolute -bottom-6 -right-6 bg-[#273266] text-white p-6 rounded-2xl shadow-xl"
+              className="absolute -bottom-6 -right-6 bg-[#273266] text-white p-6 rounded-2xl shadow-xl z-10"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -166,8 +138,8 @@ export const AboutSection: React.FC = () => {
                 VIVIFY TECHNOCRATS
               </h3>
               <p className="text-gray-600 mb-4">
-                Our name <span className="text-[#EC2A2F] font-semibold">"Vivify"</span> is derived from Latin meaning 
-                <span className="text-[#273266] font-semibold"> rebirth or resurrection</span>. 
+                Our name <span className="text-[#EC2A2F] font-semibold">"Vivify"</span> is derived from Latin meaning
+                <span className="text-[#273266] font-semibold"> rebirth or resurrection</span>.
               </p>
               <div className="p-4 bg-[#273266] rounded-xl mb-6">
                 <p className="text-white font-medium text-lg">
@@ -176,19 +148,30 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Description */}
-            <p className="text-gray-600 mb-6">
-              We are electronic solution providers and Technical Manpower Providers with about 
-              <span className="text-[#273266] font-semibold"> two decades of hands-on experience</span> on 
-              diversified electronic equipment related to all sorts of electronic security equipment, 
-              fire alarm systems, access control systems, CCTV, voltage regulators, and more.
-            </p>
+            {/* Vision & Mission */}
+            <div className="grid gap-6 mb-8">
+              <motion.div
+                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#EC2A2F]"
+                whileHover={{ x: 10 }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <HiLightBulb className="w-6 h-6 text-[#EC2A2F]" />
+                  <h4 className="font-bold text-[#273266] text-xl">Our Vision</h4>
+                </div>
+                <p className="text-gray-600">To be a global leader in providing innovative and intelligent technology solutions that transform businesses from "Obsolete to Absolute".</p>
+              </motion.div>
 
-            <p className="text-gray-600 mb-8">
-              Our teams are specialized in installation, testing, commissioning, maintaining, and 
-              servicing of electronics and electrical equipment. We have a separate team for IT 
-              networking, cabling, system integration works, and software installation & upgradation works.
-            </p>
+              <motion.div
+                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#273266]"
+                whileHover={{ x: 10 }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <HiShieldCheck className="w-6 h-6 text-[#273266]" />
+                  <h4 className="font-bold text-[#273266] text-xl">Our Mission</h4>
+                </div>
+                <p className="text-gray-600">To empower businesses by delivering cutting-edge software and hardware solutions with excellence, reliability, and a customer-centric approach.</p>
+              </motion.div>
+            </div>
 
             {/* Expertise Tags */}
             <div className="mb-8">
@@ -211,11 +194,12 @@ export const AboutSection: React.FC = () => {
 
             {/* CTA */}
             <motion.button
+              onClick={() => scrollToSection('contact')}
               className="px-8 py-4 bg-[#EC2A2F] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Learn More About Us
+              Get Started with Us
             </motion.button>
           </motion.div>
         </div>

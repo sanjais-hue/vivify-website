@@ -101,7 +101,7 @@ ${formData.message}
     'Select a Service',
     'Software Solutions',
     'Mobile App Development',
-    'ERP/HRMS Systems',
+    'ERP/HR Management Systems',
     'E-Commerce Development',
     'IT Consultancy',
     'CCTV Surveillance',
