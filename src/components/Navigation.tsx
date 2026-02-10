@@ -81,7 +81,7 @@ const Navigation = () => {
               onClick={() => scrollToSection('home')}
             >
               <img
-                src="https://i.postimg.cc/d77yrYN7/vivify-font.png"
+                src="/vivify-logo.png"
                 alt="VIVIFY TECHNOCRATS"
                 className="h-12 md:h-16 object-contain"
               />

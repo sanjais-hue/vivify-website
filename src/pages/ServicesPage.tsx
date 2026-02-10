@@ -99,18 +99,20 @@ export const ServicesPage: React.FC = () => {
                 <button onClick={() => setShowModal(null)} className="p-2 hover:bg-gray-100 rounded-xl"><HiX className="w-7 h-7" /></button>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                {softwareDetails.map((s, i) => { const Icon = s.icon; return (
-                  <motion.div key={i} className="relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#EC2A2F]/30 hover:shadow-lg transition-all overflow-hidden group" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
-                    <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{ backgroundImage: 'url(https://i.postimg.cc/d77yrYN7/vivify-font.png)', backgroundSize: '70%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-4"><div className="w-12 h-12 bg-[#273266]/10 rounded-xl flex items-center justify-center group-hover:bg-[#273266] transition-colors"><Icon className="w-6 h-6 text-[#273266] group-hover:text-white transition-colors" /></div>
-                        <h4 className="font-bold text-xl text-[#273266]">{s.name}</h4>
+                {softwareDetails.map((s, i) => {
+                  const Icon = s.icon; return (
+                    <motion.div key={i} className="relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#EC2A2F]/30 hover:shadow-lg transition-all overflow-hidden group" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+                      <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{ backgroundImage: 'url(/vivify-logo.png)', backgroundSize: '70%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4"><div className="w-12 h-12 bg-[#273266]/10 rounded-xl flex items-center justify-center group-hover:bg-[#273266] transition-colors"><Icon className="w-6 h-6 text-[#273266] group-hover:text-white transition-colors" /></div>
+                          <h4 className="font-bold text-xl text-[#273266]">{s.name}</h4>
+                        </div>
+                        <p className="text-gray-600 mb-4 leading-relaxed">{s.description}</p>
+                        {s.link && <a href={s.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#EC2A2F] font-semibold hover:gap-3 transition-all">View Live Demo <HiExternalLink className="w-5 h-5" /></a>}
                       </div>
-                      <p className="text-gray-600 mb-4 leading-relaxed">{s.description}</p>
-                      {s.link && <a href={s.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#EC2A2F] font-semibold hover:gap-3 transition-all">View Live Demo <HiExternalLink className="w-5 h-5" /></a>}
-                    </div>
-                  </motion.div>
-                )})}
+                    </motion.div>
+                  )
+                })}
               </div>
             </motion.div>
           </motion.div>
@@ -125,17 +127,19 @@ export const ServicesPage: React.FC = () => {
                 <button onClick={() => setShowModal(null)} className="p-2 hover:bg-gray-100 rounded-xl"><HiX className="w-7 h-7" /></button>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                {hardwareDetails.map((s, i) => { const Icon = s.icon; return (
-                  <motion.div key={i} className="relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#EC2A2F]/30 hover:shadow-lg transition-all overflow-hidden group" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
-                    <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{ backgroundImage: 'url(https://i.postimg.cc/d77yrYN7/vivify-font.png)', backgroundSize: '70%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-4"><div className="w-12 h-12 bg-gray-800/10 rounded-xl flex items-center justify-center group-hover:bg-gray-800 transition-colors"><Icon className="w-6 h-6 text-gray-800 group-hover:text-white transition-colors" /></div>
-                        <h4 className="font-bold text-xl text-[#273266]">{s.name}</h4>
+                {hardwareDetails.map((s, i) => {
+                  const Icon = s.icon; return (
+                    <motion.div key={i} className="relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#EC2A2F]/30 hover:shadow-lg transition-all overflow-hidden group" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+                      <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{ backgroundImage: 'url(/vivify-logo.png)', backgroundSize: '70%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4"><div className="w-12 h-12 bg-gray-800/10 rounded-xl flex items-center justify-center group-hover:bg-gray-800 transition-colors"><Icon className="w-6 h-6 text-gray-800 group-hover:text-white transition-colors" /></div>
+                          <h4 className="font-bold text-xl text-[#273266]">{s.name}</h4>
+                        </div>
+                        <p className="text-gray-600 leading-relaxed">{s.description}</p>
                       </div>
-                      <p className="text-gray-600 leading-relaxed">{s.description}</p>
-                    </div>
-                  </motion.div>
-                )})}
+                    </motion.div>
+                  )
+                })}
               </div>
             </motion.div>
           </motion.div>
