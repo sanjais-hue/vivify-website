@@ -38,8 +38,8 @@ export const FeaturesShowcase: React.FC<{ scrollToContact?: (service: string, me
     {
       name: 'E-Commerce Platforms',
       icon: HiCode,
-      description: 'Custom online stores with product catalogs, secure payments, and order management.',
-      link: 'http://harisilks.com/',
+      description: 'Scalable online stores with product catalogs, secure payments, and order management.',
+      link: null,
       watermark: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&auto=format&fit=crop'
     },
     {

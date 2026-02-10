@@ -18,31 +18,17 @@ const products = [
       android: 'https://play.google.com/store/apps/details?id=com.vivify.safety&hl=en'
     }
   },
-  // E-COMMERCE PORTFOLIO
   {
     id: 2,
-    name: 'Hari Silks E-Commerce',
+    name: 'E-Commerce Solution',
     category: 'E-Commerce Solution',
-    description: 'Custom e-commerce platform for premium silk and saree retail with product catalog, secure checkout, and order management.',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop',
-    features: ['Product Catalog Management', 'Secure Payment Integration', 'Order Tracking', 'Customer Management'],
+    description: 'Scalable e-commerce platforms with premium design, secure payments, and cross-platform compatibility.',
+    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop',
+    features: ['Custom Checkout Workflow', 'Inventory & Tax Management', 'Mobile App Integration', 'SEO-Optimized Storefront'],
     technologies: ['ReactJS', '.NET Core', 'SQL Server'],
-    demoType: 'live',
+    demoType: 'request',
     demoLinks: {
-      web: 'http://harisilks.com/'
-    }
-  },
-  {
-    id: 3,
-    name: 'Crackers E-Commerce',
-    category: 'E-Commerce Solution',
-    description: 'Festive e-commerce platform for crackers with seamless browsing, secure ordering, and efficient fulfillment.',
-    image: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&auto=format&fit=crop',
-    features: ['Product Catalog', 'Secure Payment Gateway', 'Order Management', 'Easy Checkout Process'],
-    technologies: ['ReactJS', '.NET Core', 'SQL Server'],
-    demoType: 'live',
-    demoLinks: {
-      web: 'https://srigokilaacrackers.com/'
+      web: '#'
     }
   },
   {
@@ -169,14 +155,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ scrollToContac
   };
 
   const handleViewDemo = (product: typeof products[0]) => {
-    if (product.demoLinks?.web) {
-      window.open(product.demoLinks.web, '_blank');
-    } else {
-      scrollToContact(
-        'Product Inquiry',
-        `I am interested in learning more about ${product.name}.\n\n${product.description}\n\nPlease provide detailed information about features, pricing, and availability.`
-      );
-    }
+    scrollToContact(
+      'Live Demo Request',
+      `I am interested in a live demo for ${product.name}.\n\n${product.description}\n\nPlease contact me to schedule a convenient time for a demonstration.`
+    );
   };
 
   const handleRequestQuote = (product: typeof products[0]) => {
@@ -314,30 +296,25 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ scrollToContac
                 {/* CTA - Conditional Button */}
                 <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
                   {/* Show "View Demo" only for specific products */}
-                  {(product.name === 'Vivify Safety App' ||
-                    product.name === 'Hari Silks E-Commerce' ||
-                    product.name === 'Crackers E-Commerce') ? (
-                    <button
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#EC2A2F] text-white font-semibold rounded-lg hover:bg-[#d42429] transition-colors"
-                      onClick={() => handleViewDemo(product)}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                      View Demo
-                    </button>
-                  ) : (
-                    <button
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#EC2A2F] text-white font-semibold rounded-lg hover:bg-[#d42429] transition-colors"
-                      onClick={() => handleRequestQuote(product)}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Request Quote
-                    </button>
-                  )}
+                  <button
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#EC2A2F] text-white font-semibold rounded-lg hover:bg-[#d42429] transition-colors"
+                    onClick={() => handleViewDemo(product)}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Request Live Demo
+                  </button>
+                  <button
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#EC2A2F] text-white font-semibold rounded-lg hover:bg-[#d42429] transition-colors"
+                    onClick={() => handleRequestQuote(product)}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Request Quote
+                  </button>
 
                   {/* Learn More Button - Always show */}
                   <button

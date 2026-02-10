@@ -1,9 +1,13 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import CountUp from './CountUp';
-import { HiStar, HiLightBulb, HiShieldCheck, HiUserGroup } from 'react-icons/hi';
+import { HiLightBulb, HiShieldCheck, HiArrowRight, HiStar, HiUserGroup } from 'react-icons/hi';
 
-export const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+  onVisionMission?: () => void;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) => {
   const statsRef = useRef<HTMLDivElement>(null);
   const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
@@ -38,15 +42,22 @@ export const AboutSection: React.FC = () => {
   ];
 
   const expertise = [
-    'Electronic Security Systems',
-    'Fire Alarm Systems',
-    'Access Control Solutions',
-    'CCTV Surveillance',
-    'Voltage Regulators',
-    'IT Networking & Cabling',
-    'System Integration',
-    'Software Installation'
+    'ERP & HR Management',
+    'Inventory Systems',
+    'E-Commerce Solutions',
+    'Custom Software Dev',
+    'IT System Integration',
+    'Technical Consultancy',
+    'Digital Transformation',
+    'Enterprise Applications'
   ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="about" className="py-16 bg-gray-50">
@@ -151,25 +162,33 @@ export const AboutSection: React.FC = () => {
             {/* Vision & Mission */}
             <div className="grid gap-6 mb-8">
               <motion.div
-                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#EC2A2F]"
+                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#EC2A2F] cursor-pointer"
                 whileHover={{ x: 10 }}
+                onClick={onVisionMission}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <HiLightBulb className="w-6 h-6 text-[#EC2A2F]" />
-                  <h4 className="font-bold text-[#273266] text-xl">Our Vision</h4>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <HiLightBulb className="w-6 h-6 text-[#EC2A2F]" />
+                    <h4 className="font-bold text-[#273266] text-xl">Our Vision</h4>
+                  </div>
+                  {onVisionMission && <HiArrowRight className="text-[#EC2A2F]" />}
                 </div>
-                <p className="text-gray-600">To be a global leader in providing innovative and intelligent technology solutions that transform businesses from "Obsolete to Absolute".</p>
+                <p className="text-gray-600 text-sm italic">"To be a global leader in providing innovative technology solutions..."</p>
               </motion.div>
 
               <motion.div
-                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#273266]"
+                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#273266] cursor-pointer"
                 whileHover={{ x: 10 }}
+                onClick={onVisionMission}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <HiShieldCheck className="w-6 h-6 text-[#273266]" />
-                  <h4 className="font-bold text-[#273266] text-xl">Our Mission</h4>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <HiShieldCheck className="w-6 h-6 text-[#273266]" />
+                    <h4 className="font-bold text-[#273266] text-xl">Our Mission</h4>
+                  </div>
+                  {onVisionMission && <HiArrowRight className="text-[#273266]" />}
                 </div>
-                <p className="text-gray-600">To empower businesses by delivering cutting-edge software and hardware solutions with excellence, reliability, and a customer-centric approach.</p>
+                <p className="text-gray-600 text-sm italic">"To empower businesses by delivering cutting-edge software and hardware..."</p>
               </motion.div>
             </div>
 

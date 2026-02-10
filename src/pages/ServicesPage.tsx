@@ -10,7 +10,7 @@ export const ServicesPage: React.FC = () => {
     { name: 'HR Management', icon: HiUsers, description: 'Complete HR management with onboarding, payroll, leave management, and employee self-service.', link: 'https://vivifysoft.in/employeehub/#/Login' },
     { name: 'Safety Management', icon: HiShieldCheck, description: 'Digital safety training, audits, incident reporting, and real-time monitoring.', link: 'https://vivifysoft.in/safety/#/AdminLogin' },
     { name: 'Aggregator Expense Reimbursement', icon: HiLightningBolt, description: 'Digital expense claim management with faster approvals and improved accuracy.', link: 'https://vivifysoft.in/Login.aspx' },
-    { name: 'E-Commerce Platforms', icon: HiCode, description: 'Custom online stores with product catalogs, secure payments, and order management.', link: 'http://harisilks.com/' },
+    { name: 'E-Commerce Platforms', icon: HiCode, description: 'Scalable online stores with product catalogs, secure payments, and order management.', link: null },
     { name: 'Custom Development', icon: HiCode, description: 'Tailored software solutions built specifically for your unique business requirements.', link: null },
   ];
 
