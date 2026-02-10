@@ -88,6 +88,11 @@ const clientLogos: ClientLogo[] = [
     alt: 'Jencom Logo'
   },
   {
+    name: 'Mr.Suriya',
+    logo: '/logos/surya.png',
+    alt: 'Mr.Suriya Logo'
+  },
+  {
     name: 'Metronation Chennai Television Private Limited',
     logo: '/logos/metronation.png',
     alt: 'Metronation Logo'
