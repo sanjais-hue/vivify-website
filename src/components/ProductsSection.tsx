@@ -297,7 +297,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ scrollToContac
                 <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
                   {/* Show "View Demo" only for specific products */}
                   <button
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#EC2A2F] text-white font-semibold rounded-lg hover:bg-[#d42429] transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#273266] text-white font-semibold rounded-lg hover:bg-[#1a234a] transition-colors"
                     onClick={() => handleViewDemo(product)}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
