@@ -1,12 +1,11 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
-import { useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
 interface CountUpProps {
   from?: number;
   to: number;
   duration?: number;
   separator?: string;
-  direction?: 'up' | 'down';
   className?: string;
   startCounting?: boolean;
   prefix?: string;
@@ -18,65 +17,43 @@ const CountUp = ({
   to,
   duration = 2,
   separator = '',
-  direction = 'up',
   className = '',
   startCounting,
   prefix = '',
   suffix = '',
 }: CountUpProps) => {
-  const [count, setCount] = useState(from);
   const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(from);
+  const springValue = useSpring(motionValue, {
+    damping: 60,
+    stiffness: 100,
+    duration: duration * 1000,
+  });
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const hasAnimated = useRef(false);
 
   // Determine if we should start counting
   const shouldCount = startCounting !== undefined ? startCounting : isInView;
 
-  const animate = useCallback(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const startValue = direction === 'up' ? from : to;
-    const endValue = direction === 'up' ? to : from;
-    const difference = endValue - startValue;
-    
-    const steps = 60;
-    const stepDuration = (duration * 1000) / steps;
-    let step = 0;
-    
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      // Ease out cubic for smooth animation
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const newValue = Math.round(startValue + difference * easeProgress);
-      setCount(newValue);
-
-      if (step >= steps) {
-        setCount(endValue);
-        clearInterval(timer);
-      }
-    }, stepDuration);
-
-    return () => clearInterval(timer);
-  }, [from, to, duration, direction]);
-
   useEffect(() => {
     if (shouldCount && !hasAnimated.current) {
-      animate();
+      motionValue.set(to);
+      hasAnimated.current = true;
     }
-  }, [shouldCount, animate]);
+  }, [shouldCount, to, motionValue]);
 
-  const formatNumber = (num: number) => {
-    if (separator) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
-    }
-    return num.toString();
-  };
+  useEffect(() => {
+    return springValue.onChange((latest) => {
+      if (ref.current) {
+        const formatted = Math.round(latest).toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+        ref.current.textContent = `${prefix}${formatted}${suffix}`;
+      }
+    });
+  }, [springValue, separator, prefix, suffix]);
 
   return (
     <span ref={ref} className={className}>
-      {prefix}{formatNumber(count)}{suffix}
+      {prefix}{from}{suffix}
     </span>
   );
 };

@@ -84,7 +84,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
           {/* Image Grid */}
           <motion.div
-            className="relative"
+            className="relative will-change-transform"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -98,6 +98,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
                   src="/soft.jpeg"
                   alt="Vivify Soft - Innovation"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </motion.div>
               <div className="space-y-4">
@@ -109,6 +110,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
                     alt="Team collaboration"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </motion.div>
                 <motion.div
@@ -119,6 +121,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
                     src="/soft-2.jpeg"
                     alt="Vivify Soft - Development"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </motion.div>
               </div>
@@ -142,6 +145,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="will-change-transform"
           >
             {/* Name Origin */}
             <div className="mb-6">
@@ -195,20 +199,35 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onVisionMission }) =
             {/* Expertise Tags */}
             <div className="mb-8">
               <h4 className="text-[#273266] font-semibold mb-4">Our Expertise:</h4>
-              <div className="flex flex-wrap gap-2">
+              <motion.div
+                className="flex flex-wrap gap-2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.05
+                    }
+                  }
+                }}
+              >
                 {expertise.map((item, index) => (
                   <motion.span
                     key={index}
                     className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-[#273266] hover:border-[#EC2A2F] hover:text-[#EC2A2F] transition-colors cursor-default"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.8 },
+                      visible: { opacity: 1, scale: 1 }
+                    }}
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     {item}
                   </motion.span>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             {/* CTA */}
